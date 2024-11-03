@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <div class="register-container">
+        <div class="register-box">
+            <h1 class="text-center">Join Us</h1>
+            <p class="text-center">Create your account</p>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <div class="form-group">{{ form.username.label }} {{ form.username }}</div>
+                <div class="form-group">{{ form.email.label }} {{ form.email }}</div>
+                <div class="form-group">{{ form.password.label }} {{ form.password }}</div>
+                <div class="form-group">{{ form.confirm_password.label }} {{ form.confirm_password }}</div>
+                <div class="form-group">{{ form.role.label }} {{ form.role }}</div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block">{{ form.submit.label }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .register-container {
+            background-image: url('/static/images/register-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+{% endblock %}

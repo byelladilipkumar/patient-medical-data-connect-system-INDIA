@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>You’ll Love the Way We Care for You</h1>
+        <a href="/book_appointment" class="btn btn-primary">Book Appointment</a>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="container mt-5">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/static/images/admin.png" alt="Admin">
+                    <div class="card-body">
+                        <h5 class="card-title">Admin</h5>
+                        <a href="/admin_dashboard" class="btn btn-dark">View</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/static/images/doctor.png" alt="Doctor">
+                    <div class="card-body">
+                        <h5 class="card-title">Doctor</h5>
+                        <a href="/doctor_dashboard" class="btn btn-dark">View</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/static/images/patient.png" alt="Patient">
+                    <div class="card-body">
+                        <h5 class="card-title">Patient</h5>
+                        <a href="/patient_dashboard" class="btn btn-dark">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

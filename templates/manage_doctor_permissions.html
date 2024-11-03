@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Doctor Permissions{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Manage Doctor Permissions</h1>
+
+    <!-- Form to grant permission -->
+    <form method="POST" action="{{ url_for('manage_doctor_permissions') }}">
+        <div class="mb-3">
+            <label for="doctor_id" class="form-label">Select Doctor</label>
+            <select name="doctor_id" id="doctor_id" class="form-control">
+                {% for doctor in doctors %}
+                <option value="{{ doctor.id }}">{{ doctor.username }} ({{ doctor.email }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="hospital_id" class="form-label">Select Hospital</label>
+            <select name="hospital_id" id="hospital_id" class="form-control">
+                {% for hospital in hospitals %}
+                <option value="{{ hospital.id }}">{{ hospital.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Grant Permission</button>
+    </form>
+
+    <hr class="my-4">
+
+    <!-- List of permissions -->
+    <h3>Existing Doctor Permissions</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Doctor</th>
+                <th>Hospital</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for permission in permissions %}
+            <tr>
+                <td>{{ permission.doctor.username }}</td>
+                <td>{{ permission.hospital.name }}</td>
+                <td>
+                    <form method="POST" action="{{ url_for('revoke_permission', permission_id=permission.id) }}" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to revoke this permission?');">Revoke</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

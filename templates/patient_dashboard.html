@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Patient Dashboard{% endblock %}
+{% block content %}
+    <h1>Welcome, {{ current_user.username }}!</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <img src="/static/images/medical_records.png" class="card-img-top" alt="Medical Records">
+                <div class="card-body">
+                    <h5 class="card-title">My Medical Records</h5>
+                    <a href="{{ url_for('my_medical_history') }}" class="btn btn-primary">View Records</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img src="/static/images/book_appointment.png" class="card-img-top" alt="Book Appointment">
+                <div class="card-body">
+                    <h5 class="card-title">Book an Appointment</h5>
+                    <a href="{{ url_for('book_appointment') }}" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img src="/static/images/update_info.png" class="card-img-top" alt="Update Info">
+                <div class="card-body">
+                    <h5 class="card-title">Update Personal Information</h5>
+                    <a href="{{ url_for('update_personal_info') }}" class="btn btn-primary">Update Info</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img src="/static/images/appointments.png" class="card-img-top" alt="View Appointments">
+                <div class="card-body">
+                    <h5 class="card-title">View My Appointments</h5>
+                    <a href="{{ url_for('view_appointments') }}" class="btn btn-primary">View Appointments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

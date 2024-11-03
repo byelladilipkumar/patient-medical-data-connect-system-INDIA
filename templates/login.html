@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+        <div class="login-box">
+            <h1 class="text-center">Welcome Back</h1>
+            <p class="text-center">Login to access your account</p>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <div class="form-group">{{ form.email.label }} {{ form.email }}</div>
+                <div class="form-group">{{ form.password.label }} {{ form.password }}</div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block">{{ form.submit.label }}</button>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <p>New here? <a href="/register" class="link">Create an account</a></p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .login-container {
+            background-image: url('/static/images/login-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}

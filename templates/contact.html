@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 class="text-center mb-5" style="color: #007bff; font-weight: bold;">Get in Touch</h1>
+
+            <div class="card shadow-lg p-4" style="border: none; background-color: rgba(255, 255, 255, 0.95);">
+                <div class="row">
+                    <!-- Contact Information Section -->
+                    <div class="col-md-6 mb-4">
+                        <h5 class="font-weight-bold" style="color: #343a40;">Contact Information</h5>
+                        <p>Have questions or want to give feedback? Reach out to us through the following ways:</p>
+                        <ul class="list-unstyled">
+                            <li><strong>Email:</strong> support@pmdcs.com</li>
+                            <li><strong>Phone:</strong> +123 456 7890</li>
+                            <li><strong>Address:</strong> 123 Healthcare St, Tech City</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Form Section -->
+                    <div class="col-md-6">
+                        <h5 class="font-weight-bold" style="color: #343a40;">Send Us a Message</h5>
+                        <form method="POST" action="{{ url_for('contact') }}">
+                            {{ form.hidden_tag() }}
+
+                            <div class="mb-3">
+                                {{ form.name.label(class="form-label") }}
+                                {{ form.name(class="form-control") }}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form.email.label(class="form-label") }}
+                                {{ form.email(class="form-control") }}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form.subject.label(class="form-label") }}
+                                {{ form.subject(class="form-control") }}
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form.message.label(class="form-label") }}
+                                {{ form.message(class="form-control") }}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" style="background-color: #007bff; border: none;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Welcome, Admin!</h1>
+
+    <!-- Statistics Cards Section -->
+    <div class="row mb-4">
+        <!-- Total Appointments Card -->
+        <div class="col-md-4">
+            <div class="card bg-primary text-white mb-3 shadow-lg">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Appointments</h5>
+                    <p class="card-text display-4">{{ total_appointments }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Patients Card -->
+        <div class="col-md-4">
+            <div class="card bg-success text-white mb-3 shadow-lg">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Patients</h5>
+                    <p class="card-text display-4">{{ total_patients }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Doctors Card -->
+        <div class="col-md-4">
+            <div class="card bg-warning text-white mb-3 shadow-lg">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Doctors</h5>
+                    <p class="card-text display-4">{{ total_doctors }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Management Section in Cards -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="/static/images/user_management.png" class="card-img-top" alt="User Management">
+                <div class="card-body">
+                    <h5 class="card-title">User Management</h5>
+                    <a href="{{ url_for('manage_users') }}" class="btn btn-primary">Manage Users</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="/static/images/appointment_management.png" class="card-img-top" alt="Appointment Management">
+                <div class="card-body">
+                    <h5 class="card-title">Appointment Management</h5>
+                    <a href="{{ url_for('admin_appointment_management') }}" class="btn btn-primary">Manage Appointments</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="/static/images/patient_record_management.png" class="card-img-top" alt="Patient Record Management">
+                <div class="card-body">
+                    <h5 class="card-title">Patient Record Management</h5>
+                    <a href="{{ url_for('admin_manage_records') }}" class="btn btn-primary">Manage Patient Records</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="/static/images/add_patient_record.png" class="card-img-top" alt="Add New Record">
+                <div class="card-body">
+                    <h5 class="card-title">Add New Patient Record</h5>
+                    <a href="{{ url_for('create_record') }}" class="btn btn-primary">Add New Record</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="/static/images/contact_messages.png" class="card-img-top" alt="Contact Messages">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Messages and Feedback</h5>
+                    <a href="{{ url_for('view_contact_messages') }}" class="btn btn-primary">View Contact Messages</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="/static/images/manage_hospitals.png" class="card-img-top" alt="Manage Hospitals">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Hospitals</h5>
+                    <a href="{{ url_for('manage_hospitals') }}" class="btn btn-primary">Manage Hospitals</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="/static/images/doctor_permissions.png" class="card-img-top" alt="Manage Doctor Permissions">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Doctor Permissions</h5>
+                    <a href="{{ url_for('manage_doctor_permissions') }}" class="btn btn-primary">Manage Doctor Permissions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
